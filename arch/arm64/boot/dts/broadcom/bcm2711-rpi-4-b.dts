@@ -4,16 +4,18 @@
 / {
 //   target-path = "/"; //This seems not required for rpi4 
    
-   reserved-memory {
-   	#address-cells = <2>;
-   	#size-cells = <1>;
-   	ranges;
+	reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <1>;
+		ranges;
+		compatible = "simple-bus"; //This seems mandatory, for driver binding using platform_device
  
-   	reserved: buffer@0x40000000 {
-      		no-map;
-      		reg = <0x0 0x40000000 0x10000000>;
-      		status = "okay";
-   	};
-};
+		reserved: buffer@0x40000000 {
+			compatible = "IPCMemory";
+			no-map;
+			reg = <0x0 0x40000000 0x10000000>;
+			status = "okay";
+		};
+	};
 };
 
