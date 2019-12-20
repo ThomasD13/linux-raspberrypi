@@ -554,6 +554,13 @@ config ADI
 	  and SSM (Silicon Secured Memory).  Intended consumers of this
 	  driver include crash and makedumpfile.
 
+config IBG_HELLOWORLD
+	tristate "A simple ibg character driver, to map physical RAM"
+	default n
+	help
+	  Just a driver test builtin, to check if kgdb works.
+
+
 endmenu
 
 config RANDOM_TRUST_CPU
